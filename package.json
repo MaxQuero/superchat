@@ -2,7 +2,7 @@
   "name": "perso",
   "version": "1.0.0",
   "description": "",
-  "main": "test.js",
+  "main": "index.js",
   "dependencies": {
     "@types/lodash": "^4.14.149",
     "@types/node": "^13.1.8",
