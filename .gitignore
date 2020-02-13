@@ -1,2 +1,6 @@
 node_modules/
+<<<<<<< HEAD:.gitignore
 ./.idea
+=======
+.idea/
+>>>>>>> * adding gitignore:.gitignore
