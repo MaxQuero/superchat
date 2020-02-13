@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SuperChat</title>
+</head>
+<body>
+    <h1>Le super chat temps réel</h1>
+        <input class="message" type="text" aria-label="Votre message">
+        <button onclick="send()">Envoyer</button>
+    <div class="welcome">
+        <p class="el"></p>
+    </div>
+    <div class="messages">
+        <p class="message"></p>
+    </div>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+        var socket= io.connect('http://localhost:8080');
+        var pseudo = prompt('peusod ?');
+        socket.emit('pseudo', pseudo);
+        socket.on('welcome', function(message) {
+            $('.el').html(message);
+        });
+
+
+        socket.on('new_message', function(newMessage){
+            $('.messages').append('<p>' + newMessage + '</p>');
+        });
+
+
+        function send() {
+            var message = $('.message').val();
+            socket.emit('message', message);
+        }
+</script>
+</body>
+</html>
